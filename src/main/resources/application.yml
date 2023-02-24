@@ -1,0 +1,13 @@
+server:
+  tomcat:
+    #    accept-count: 1
+    max-connections: 3
+    threads:
+      max: 1
+    mbeanregistry:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
