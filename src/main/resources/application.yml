@@ -1,7 +1,7 @@
 server:
   tomcat:
     #    accept-count: 1
-    max-connections: 3
+    max-connections: 1
     threads:
       max: 1
     mbeanregistry:
