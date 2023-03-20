@@ -3,6 +3,7 @@ WORKDIR application
 COPY .mvn .mvn
 COPY mvnw mvnw
 COPY pom.xml pom.xml
+RUN sed -i 's/\r$//' mvnw # For windows os
 RUN ./mvnw -fn clean verify
 COPY src src
 RUN ./mvnw package
