@@ -1,13 +1,23 @@
 package com.example.demo;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class DemoApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Autowired
+    private TestRestTemplate testRestTemplate;
+
+    @Test
+    void shouldGetHello() {
+        var body = testRestTemplate.getForEntity("/", String.class)
+                .getBody();
+        assertThat(body).isEqualTo("Hello");
+    }
 
 }
