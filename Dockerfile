@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjdk-alpine:19 as builder
+FROM bellsoft/liberica-openjdk-alpine:21 AS builder
 WORKDIR application
 COPY .mvn .mvn
 COPY mvnw mvnw
@@ -9,7 +9,7 @@ COPY src src
 RUN ./mvnw package
 RUN java -Djarmode=layertools -jar target/*.jar extract
 
-FROM bellsoft/liberica-openjre-alpine:19
+FROM bellsoft/liberica-openjre-alpine:21
 WORKDIR application
 COPY --from=builder application/dependencies/ ./
 COPY --from=builder application/spring-boot-loader/ ./
