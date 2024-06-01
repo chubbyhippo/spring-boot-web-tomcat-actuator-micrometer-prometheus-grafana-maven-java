@@ -1,11 +1,7 @@
 services:
-  web:
-    build: .
-    ports:
-      - "8080:8080"
   prometheus:
     image: prom/prometheus
     volumes:
       - ./env/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"
+      - "8081:9090"
