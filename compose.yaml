@@ -2,6 +2,6 @@ services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - ./env/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./env/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "8081:9090"
