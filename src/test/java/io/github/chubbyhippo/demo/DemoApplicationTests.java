@@ -1,4 +1,4 @@
-package com.example.demo;
+package io.github.chubbyhippo.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
